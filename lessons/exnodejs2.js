@@ -66,49 +66,47 @@ function clear () {
 // console.log("Please enter a math operation followed by 2 numbers separated by spaces.")
     
 
-function add(num1, num2){
-	return num1 + num2
-}
 
-function substract(num1, num2) {
-	return num1 - num2
-}
+// function substract(num1, num2) {
+// 	return num1 - num2
+// }
 
-function multiply(num1, num2) {
-	return num1 * num2
-}
+// function multiply(num1, num2) {
+// 	return num1 * num2
+// }
 
-function divide(num1, num2) {
-	return num1 / num2
-}
+// function divide(num1, num2) {
+// 	return num1 / num2
+// }
 
 
-function isNum(value){
-    return !isNaN(value)
-}
+// function isNum(value){
+//     return !isNaN(value)
+// }
 
-var result = 0
+
 rl.on('line', function(input) {
-    clear()
+   clear()
     var inputArr = input.split(' ')
-
+    var result = inputArr[1]
+    
         for (var i = 2; i < inputArr.length; i++) {
+               
                 if (inputArr[0] === '+') {
-                    add(inputArr[i], inputArr[i])
+                    result = Number(result) + Number(inputArr[i])     
                 } else if (inputArr[0] === '-') {
-                    dif -= Number(inputArr[i])
-                    var result = dif
+                    result = result - inputArr[i]
                 } else if (inputArr[0] === '*') {
-                    mul *= Number(inputArr[i])
-                    var result = prod
+                    result = result * inputArr[i]
                 } else if (inputArr[0] === '/') {
-                    div /= Number(inputArr[i])
-                    var result = quotient
-                } else {
+                    result = result / inputArr[i]
+                } else if (isNaN(inputArr[i])) {
+                    console.log("Enter a valid input.")
+                }else {
                     var result = "Invalid input."
                 }
-            }
-        console.log(result)
+            }                     
+       console.log(result)
     })
-    console.log("Input an Operation (+,-,*,/) and numbers separated by spaces.")
+console.log("Input an Operation (+,-,*,/) and numbers separated by spaces.")
     
